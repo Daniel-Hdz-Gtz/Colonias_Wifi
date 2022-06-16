@@ -48,7 +48,7 @@
             } else {
               highlightLayer.setStyle({
                 fillColor: '#ffff00',
-                fillOpacity: 1
+                fillOpacity: 0.09
               });
             }
             highlightLayer.openPopup();
@@ -79,7 +79,7 @@
         map.getPane('pane_CartoPositron_1').style.zIndex = 401;
         var layer_CartoPositron_1 = L.tileLayer('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
             pane: 'pane_CartoPositron_1',
-            opacity: 1.0,
+            opacity: .650,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
