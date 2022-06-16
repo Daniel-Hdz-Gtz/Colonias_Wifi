@@ -8,6 +8,7 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link rel="stylesheet" href="css/leaflet.css">
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -30,9 +31,10 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="data/Estatus1_2.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="data/Estatus3_2.js"></script>
         <script src="data/Estatus2_3.js"></script>
-        <script src="data/Estatus3_4.js"></script>
+        <script src="data/Estatus1_4.js"></script>
         <script src="data/alcaldiasalcaldias_cdmx_5.js"></script>
         <script>
         var highlightLayer;
@@ -53,7 +55,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[19.26506043400709,-99.35144725838578],[19.511109559007444,-98.9951481304225]]);
+        }).fitBounds([[19.04409233318394,-99.50918120225623],[19.848341933181942,-98.46347517607373]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -86,7 +88,7 @@
         });
         layer_CartoPositron_1;
         map.addLayer(layer_CartoPositron_1);
-        function pop_Estatus1_2(feature, layer) {
+        function pop_Estatus3_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -104,7 +106,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CP</th>\
@@ -131,6 +134,10 @@
                         <td>' + (feature.properties['POBTOT'] !== null ? autolinker.link(feature.properties['POBTOT'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">IM_2020</th>\
+                        <td>' + (feature.properties['IM_2020'] !== null ? autolinker.link(feature.properties['IM_2020'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">GM_2020</th>\
                         <td>' + (feature.properties['GM_2020'] !== null ? autolinker.link(feature.properties['GM_2020'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -138,9 +145,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Estatus1_2_0() {
+        function style_Estatus3_2_0() {
             return {
-                pane: 'pane_Estatus1_2',
+                pane: 'pane_Estatus3_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -149,24 +156,24 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(190,207,80,1.0)',
+                fillColor: 'rgba(188,9,0,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Estatus1_2');
-        map.getPane('pane_Estatus1_2').style.zIndex = 402;
-        map.getPane('pane_Estatus1_2').style['mix-blend-mode'] = 'normal';
-        var layer_Estatus1_2 = new L.geoJson(json_Estatus1_2, {
+        map.createPane('pane_Estatus3_2');
+        map.getPane('pane_Estatus3_2').style.zIndex = 402;
+        map.getPane('pane_Estatus3_2').style['mix-blend-mode'] = 'normal';
+        var layer_Estatus3_2 = new L.geoJson(json_Estatus3_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Estatus1_2',
-            layerName: 'layer_Estatus1_2',
-            pane: 'pane_Estatus1_2',
-            onEachFeature: pop_Estatus1_2,
-            style: style_Estatus1_2_0,
+            dataVar: 'json_Estatus3_2',
+            layerName: 'layer_Estatus3_2',
+            pane: 'pane_Estatus3_2',
+            onEachFeature: pop_Estatus3_2,
+            style: style_Estatus3_2_0,
         });
-        bounds_group.addLayer(layer_Estatus1_2);
-        map.addLayer(layer_Estatus1_2);
+        bounds_group.addLayer(layer_Estatus3_2);
+        map.addLayer(layer_Estatus3_2);
         function pop_Estatus2_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -185,7 +192,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CP</th>\
@@ -210,6 +218,10 @@
                     <tr>\
                         <th scope="row">POBTOT</th>\
                         <td>' + (feature.properties['POBTOT'] !== null ? autolinker.link(feature.properties['POBTOT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">IM_2020</th>\
+                        <td>' + (feature.properties['IM_2020'] !== null ? autolinker.link(feature.properties['IM_2020'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">GM_2020</th>\
@@ -230,7 +242,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(228,209,62,1.0)',
+                fillColor: 'rgba(231,174,41,1.0)',
                 interactive: true,
             }
         }
@@ -248,7 +260,7 @@
         });
         bounds_group.addLayer(layer_Estatus2_3);
         map.addLayer(layer_Estatus2_3);
-        function pop_Estatus3_4(feature, layer) {
+        function pop_Estatus1_4(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -266,7 +278,8 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>Nombre</strong><br />' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nombre</th>\
+                        <td>' + (feature.properties['Nombre'] !== null ? autolinker.link(feature.properties['Nombre'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CP</th>\
@@ -293,6 +306,10 @@
                         <td>' + (feature.properties['POBTOT'] !== null ? autolinker.link(feature.properties['POBTOT'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">IM_2020</th>\
+                        <td>' + (feature.properties['IM_2020'] !== null ? autolinker.link(feature.properties['IM_2020'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">GM_2020</th>\
                         <td>' + (feature.properties['GM_2020'] !== null ? autolinker.link(feature.properties['GM_2020'].toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -300,9 +317,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Estatus3_4_0() {
+        function style_Estatus1_4_0() {
             return {
-                pane: 'pane_Estatus3_4',
+                pane: 'pane_Estatus1_4',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -311,24 +328,24 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(192,44,28,1.0)',
+                fillColor: 'rgba(175,241,177,1.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_Estatus3_4');
-        map.getPane('pane_Estatus3_4').style.zIndex = 404;
-        map.getPane('pane_Estatus3_4').style['mix-blend-mode'] = 'normal';
-        var layer_Estatus3_4 = new L.geoJson(json_Estatus3_4, {
+        map.createPane('pane_Estatus1_4');
+        map.getPane('pane_Estatus1_4').style.zIndex = 404;
+        map.getPane('pane_Estatus1_4').style['mix-blend-mode'] = 'normal';
+        var layer_Estatus1_4 = new L.geoJson(json_Estatus1_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Estatus3_4',
-            layerName: 'layer_Estatus3_4',
-            pane: 'pane_Estatus3_4',
-            onEachFeature: pop_Estatus3_4,
-            style: style_Estatus3_4_0,
+            dataVar: 'json_Estatus1_4',
+            layerName: 'layer_Estatus1_4',
+            pane: 'pane_Estatus1_4',
+            onEachFeature: pop_Estatus1_4,
+            style: style_Estatus1_4_0,
         });
-        bounds_group.addLayer(layer_Estatus3_4);
-        map.addLayer(layer_Estatus3_4);
+        bounds_group.addLayer(layer_Estatus1_4);
+        map.addLayer(layer_Estatus1_4);
         function pop_alcaldiasalcaldias_cdmx_5(feature, layer) {
             layer.on({
                 mouseout: function(e) {
@@ -347,8 +364,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <th scope="row">nomgeo</th>\
-                        <td>' + (feature.properties['nomgeo'] !== null ? autolinker.link(feature.properties['nomgeo'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['nomgeo'] !== null ? autolinker.link(feature.properties['nomgeo'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['zona'] !== null ? autolinker.link(feature.properties['zona'].toLocaleString()) : '') + '</td>\
@@ -384,8 +400,18 @@
         });
         bounds_group.addLayer(layer_alcaldiasalcaldias_cdmx_5);
         map.addLayer(layer_alcaldiasalcaldias_cdmx_5);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/alcaldiasalcaldias_cdmx_5.png" /> alcaldias — alcaldias_cdmx': layer_alcaldiasalcaldias_cdmx_5,'<img src="legend/Estatus3_4.png" /> Estatus 3': layer_Estatus3_4,'<img src="legend/Estatus2_3.png" /> Estatus 2': layer_Estatus2_3,'<img src="legend/Estatus1_2.png" /> Estatus 1': layer_Estatus1_2,"Carto Positron": layer_CartoPositron_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/alcaldiasalcaldias_cdmx_5.png" /> alcaldias — alcaldias_cdmx': layer_alcaldiasalcaldias_cdmx_5,'<img src="legend/Estatus1_4.png" /> Estatus 1': layer_Estatus1_4,'<img src="legend/Estatus2_3.png" /> Estatus 2': layer_Estatus2_3,'<img src="legend/Estatus3_2.png" /> Estatus 3': layer_Estatus3_2,"Carto Positron": layer_CartoPositron_1,"Google Satellite": layer_GoogleSatellite_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
